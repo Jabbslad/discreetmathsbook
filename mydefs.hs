@@ -40,3 +40,19 @@ prod x y = x*y
 g = prod 4 
 p = g 6 
 q = twice g 3
+
+-- Exercise 6
+toBool :: Int -> Bool
+toBool 1 = True
+toBool 0 = False
+
+convert :: [Int] -> [Bool]
+convert xs = map toBool xs
+
+-- Exercise 7
+member0 :: String -> Bool
+member0 xs = or (map (=='0') xs)
+
+-- Exercise 8
+
+
