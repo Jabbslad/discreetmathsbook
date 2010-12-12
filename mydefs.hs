@@ -54,5 +54,29 @@ member0 :: String -> Bool
 member0 xs = or (map (=='0') xs)
 
 -- Exercise 8
+-- See expanding.txt
 
+-- Exercise 9
+addJust :: Maybe Int -> Maybe Int -> Maybe Int
+addJust (Just a) (Just b) = Just (a + b)
+addJust (Just a) Nothing = Just a
+addJust Nothing (Just a) = Just a
+addJust Nothing Nothing = Nothing
 
+addMaybe :: [Maybe Int] -> [Maybe Int] -> [Maybe Int]
+addMaybe lst1 lst2 = zipWith addJust lst1 lst2
+
+-- Exercise 10
+data Metal = Aluminium | Chromium | Cobalt | Copper | Gold | Iron
+  deriving (Eq, Show)
+
+data Coins = OneP Int | TwoP Int | FiveP Int 
+  | TenP Int | TwentyP Int
+  | FiftyP Int | HundredP Int 
+  deriving (Eq, Show)
+  
+data Universal = BOOL Bool | CHAR Char | INT Int
+  deriving (Eq, Show)
+  
+data Tuples a b c d = Tuple0 | Tuple1 a | Tuple2 a b | Tuple3 a b c | Tuple4 a b c d
+  deriving (Eq, Show)
