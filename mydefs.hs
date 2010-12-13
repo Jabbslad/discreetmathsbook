@@ -80,3 +80,28 @@ data Universal = BOOL Bool | CHAR Char | INT Int
   
 data Tuples a b c d = Tuple0 | Tuple1 a | Tuple2 a b | Tuple3 a b c | Tuple4 a b c d
   deriving (Eq, Show)
+  
+showMaybe :: Show a => Maybe a -> String
+showMaybe Nothing = []
+showMaybe (Just x) = show x
+
+bitAnd :: Int -> Int -> Int 
+bitAnd 1 1 = 1 
+bitAnd x y = 0
+
+bitwiseAnd :: [Int] -> [Int] -> [Int]
+bitwiseAnd lst1 lst2 = zipWith bitAnd lst1 lst2
+
+greaterThanN :: [Int] -> Int -> [Int]
+greaterThanN xs n = [ x | x <- xs, x > n]
+
+indexOf :: [Int] -> Int -> [Int]
+indexOf lst n = [x | x <- [0..(length lst - 1)], lst!!x == n]
+
+compChar :: (Eq a, Num b) => a -> a -> b -> b 
+compChar letter x acc = if letter == x then acc + 1 else acc
+
+countLetter :: Char -> [Char] -> Int
+countLetter c string = foldr (compChar c) 0 string
+
+-- Exercise 25
