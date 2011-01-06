@@ -105,3 +105,11 @@ countLetter :: Char -> [Char] -> Int
 countLetter c string = foldr (compChar c) 0 string
 
 -- Exercise 25
+
+-- Exercise 26
+
+revlist :: [a] -> a -> [a]
+revlist xs x = x:xs
+
+rev :: [a] -> [a]
+rev lst = foldl revlist [] lst
